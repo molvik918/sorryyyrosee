@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <p>Real-time weather information for any location</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Enter city name or coordinates..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button id="gpsBtn" class="gps-btn" title="Use current location">
+                    <i class="fas fa-location-dot"></i>
+                </button>
+            </div>
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <!-- Current Weather Section -->
+        <div id="currentWeather" class="current-weather hidden">
+            <div class="weather-card main-card">
+                <div class="location-info">
+                    <h2 id="cityName"></h2>
+                    <p id="coordinates" class="coordinates"></p>
+                </div>
+                <div class="weather-content">
+                    <div class="weather-icon-section">
+                        <img id="weatherIcon" class="weather-icon" src="" alt="Weather icon">
+                        <div class="temperature-section">
+                            <span id="temperature" class="temperature"></span>
+                            <span class="unit">°C</span>
+                        </div>
+                    </div>
+                    <div class="weather-details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Condition</span>
+                            <span id="condition" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Feels Like</span>
+                            <span id="feelsLike" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span id="humidity" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure</span>
+                            <span id="pressure" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind Speed</span>
+                            <span id="windSpeed" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind Direction</span>
+                            <span id="windDirection" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">UV Index</span>
+                            <span id="uvIndex" class="detail-value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Visibility</span>
+                            <span id="visibility" class="detail-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5-Day Forecast Section -->
+        <div id="forecastSection" class="forecast-section hidden">
+            <h3><i class="fas fa-calendar-days"></i> 5-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-container"></div>
+        </div>
+
+        <!-- Hourly Forecast Section -->
+        <div id="hourlySection" class="hourly-section hidden">
+            <h3><i class="fas fa-clock"></i> 24-Hour Forecast</h3>
+            <div id="hourlyContainer" class="hourly-container"></div>
+        </div>
+
+        <!-- Sunrise/Sunset Section -->
+        <div id="sunSection" class="sun-section hidden">
+            <div class="sun-card">
+                <div class="sun-info">
+                    <i class="fas fa-sunrise"></i>
+                    <div>
+                        <span class="sun-label">Sunrise</span>
+                        <span id="sunrise" class="sun-time"></span>
+                    </div>
+                </div>
+                <div class="sun-info">
+                    <i class="fas fa-sunset"></i>
+                    <div>
+                        <span class="sun-label">Sunset</span>
+                        <span id="sunset" class="sun-time"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Searches -->
+        <div id="recentSearches" class="recent-searches hidden">
+            <h3><i class="fas fa-history"></i> Recent Searches</h3>
+            <div id="recentList" class="recent-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
