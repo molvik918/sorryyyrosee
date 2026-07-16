@@ -4,60 +4,291 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I AM SORRY ROSE BABE</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 30px 0;
+            font-weight: 500;
+        }
+
+        .signature {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hearts {
+            margin: 20px 0;
+            letter-spacing: 10px;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .music-control {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #ddd;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .rose-emoji {
+            display: inline-block;
+            margin: 0 5px;
+            font-size: 1.8em;
+        }
+    </style>
 </head>
 <body>
-    <div class="background-container">
-        <canvas id="canvas"></canvas>
-    </div>
-    
+    <!-- Animated background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main Container -->
     <div class="container">
-        <div class="message-box">
-            <h1 class="title">I AM SORRY ROSE BABE 💔</h1>
-            
-            <div class="message-content">
-                <p class="message-text">
-                    I AM REALLY SORRY ROSEEE
-                </p>
-                <p class="message-text">
-                    MUJEY PATA NAHI THA KII AASA KUCH HOGAA WARNA KABHI NAHI KARTA
-                </p>
-                <p class="message-text">
-                    OR I REALLY LOVE YOU BABEE
-                </p>
-                <p class="message-text">
-                    SORRY MERII SUAR BABEE
-                </p>
-                <p class="message-text">
-                    MUJEY HOSAKE TO MAAF KARDENA IF POSSIBLE YAAAWW 😭😭😭
-                </p>
-                <p class="message-text">
-                    I WILL ALWAYS LOVE YOU YAAAWWW
-                </p>
-                <p class="message-footer">
-                    Sorry from The Mogger the Peak the Ony Suar the Bebe 💕
-                </p>
-            </div>
-            
-            <div class="heart-animation">
-                <span class="heart">❤️</span>
-                <span class="heart">💕</span>
-                <span class="heart">❤️</span>
-            </div>
+        <h1><span class="rose-emoji">🌹</span> I AM SORRY ROSE BABE <span class="rose-emoji">🌹</span></h1>
+
+        <div class="message">
+            I AM REALLY SORRY ROSEEE<br>
+            MUJEY PATA NAHI THA KII AASA KUCH HOGAA<br>
+            WARNA KABHI NAHI KARTA<br>
+            <br>
+            OR I REALLY LOVE YOU BABEE<br>
+            SORRY MERII SUAR BABEE<br>
+            MUJEY HOSAKE TO MAAF KARDENA IF POSSIBLE YAAAWW
+        </div>
+
+        <div class="hearts">
+            💔 💔 💔
+        </div>
+
+        <div class="message" style="color: #e91e63; font-size: 1.5em;">
+            😭😭😭
+        </div>
+
+        <div class="message">
+            I WILL ALWAYS LOVE YOU YAAAWWW
+        </div>
+
+        <div class="signature">
+            — SORRY from The Mogger, The Peak, The Only Suar, The Bebe 💕
+        </div>
+
+        <!-- Music Control -->
+        <div class="music-control">
+            <p style="color: #666; font-size: 1.1em;">🎵 Background Music 🎵</p>
+            <audio controls autoplay loop>
+                <source src="https://cs1.mp3.pm/download/5044431/ZWZJS2NiSk5GeU1VOGlWZk9NcUUrS0ZuSFZuTjFhc01YVkhCbXVQdXJER2xYcEdnODUrdWFhSEkwdlZtUy9ZWXdxSWtxcnREdHZSbFlrc000OGVSZHlTS3dWditia2VuSGdqUDgzTUc0Y2F6OWdHUDRETTlSRHh6WjByZitUdmY/Celion_Dion_-_I_Love_You_(mp3.pm).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="button-group">
+            <button onclick="createConfetti()">✨ Make It Special ✨</button>
+            <button onclick="alert('Forever yours 💕')">💕 I Love You 💕</button>
         </div>
     </div>
-    
-    <!-- Music Controls -->
-    <div class="music-controls">
-        <button id="musicToggle" class="music-btn">🎵 Play Music</button>
-        <span class="music-status">Now Playing: Sorry Theme</span>
-    </div>
-    
-    <!-- Audio Element -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-    
-    <script src="script.js"></script>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.width = Math.random() * 100 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.bottom = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = '❤️';
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.fontSize = Math.random() * 20 + 10 + 'px';
+                confetti.style.zIndex = '9999';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = `fall ${2 + Math.random() * 3}s linear forwards`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Add CSS for confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize particles on page load
+        window.addEventListener('load', createParticles);
+    </script>
 </body>
 </html>
